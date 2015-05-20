@@ -4,7 +4,7 @@ Scripts for mineflayer
   - pkFisher
   - Archer Bot
   
-## Soon to come
+# Soon to come
   - Woodcutter
   - Miner
   - Shotbow minigames
