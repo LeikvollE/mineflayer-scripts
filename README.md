@@ -1,3 +1,11 @@
 # mineflayer-scripts
 Scripts for mineflayer
-test line
+## Scripts
+  - pkFisher
+  - Archer Bot
+  
+## Soon to come
+  - Woodcutter
+  - Miner
+  - Shotbow minigames
+  
