@@ -1,5 +1,5 @@
-var mineflayer = require('../');
-var navigatePlugin = require('../node_modules/mineflayer-navigate-master')(mineflayer);
+var mineflayer = require('mineflayer');
+var navigatePlugin = require('mineflayer-navigate')(mineflayer);
 var vec3 = mineflayer.vec3;
 
 if(process.argv.length<4 || process.argv.length>6)
@@ -40,6 +40,11 @@ bot.on('chat', function (username, message) {
         posFishZ = bot.players[username].entity.position.z;
         fish();
     }
+    
+    if (message == 'come') {
+        status == 'come';
+        bot.navigate.to(bot.players[username].entity.position);
+    }
 });
 
 bot.navigate.on('arrived', function () {
@@ -48,12 +53,19 @@ bot.navigate.on('arrived', function () {
     } else if (status == 'storing') {
         placeInChest();
     }
+    
+    if (status == 'come') {
+        bot.chat("Here !");
+        come = null;
+    }
 });
 
 bot.on('soundEffectHeard', function (soundName, position, volume, pitch) {
     if (soundName == 'random.splash') {
         if (status == 'fishing') {
-            bot.activateItem();
+			// add timeout... Without we have bugs
+			setTimeout(bot.activateItem, 500);
+            
             setTimeout(storeInChest, 1000);
         }
     }
