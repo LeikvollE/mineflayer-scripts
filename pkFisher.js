@@ -61,7 +61,7 @@ bot.navigate.on('arrived', function () {
 });
 
 bot.on('soundEffectHeard', function (soundName, position, volume, pitch) {
-    if (soundName == 'random.splash') {
+    if (soundName == 'entity.bobber.splash') {
         if (status == 'fishing') {
 			// add timeout... Without we have bugs
 			setTimeout(bot.activateItem, 500);
