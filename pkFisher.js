@@ -107,10 +107,13 @@ function storeInChest() {
 function placeInChest() {
     var chest = bot.openChest(blockChest);
     var fishI = bot.inventory.findInventoryItem(349);
+    var enchantedBookI = bot.inventory.findInventoryItem(403);
     chest.on('open', function () {
         if (fishI) {
             chest.deposit(fishI.type, null, bot.inventory.count(fishI.type));
-        }
+        } elseif(enchantedBookI){
+	    chest.deposit(enchantedBookI.type, null, bot.inventory.count(fishI.type));
+	}
         setTimeout(chest.close, 500);
         setTimeout(fish, 500);
     })
