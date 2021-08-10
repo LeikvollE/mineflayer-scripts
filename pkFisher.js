@@ -111,7 +111,7 @@ function placeInChest() {
     chest.on('open', function () {
         if (fishI) {
             chest.deposit(fishI.type, null, bot.inventory.count(fishI.type));
-        } elseif(enchantedBookI){
+        } else if(enchantedBookI){
 	    chest.deposit(enchantedBookI.type, null, bot.inventory.count(fishI.type));
 	}
         setTimeout(chest.close, 500);
